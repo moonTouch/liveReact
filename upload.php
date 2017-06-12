@@ -35,11 +35,16 @@ function upload($file, $valid_extensions, $path_prefix, $index){
 		// File name generator
 		$file_name = $file['name'];
 
+		// If folder doesn't exists, create it
+		if(!file_exists($path_prefix)) {
+			mkdir($path_prefix);
+		};
+		
 		// Check if file name already exists in the folder. If so, add an uniqid and "-" in front of original filename
 		if(file_exists($path_prefix . $file_name)) {
 
 			$file_name = uniqid() . "-" . $file_name;
-		}
+		};
 		
 		// Generate final path to move on
 		$path = $path_prefix . $file_name;
