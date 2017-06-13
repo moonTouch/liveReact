@@ -115,7 +115,7 @@ if ($_FILES['img']['error'] !=4 && $_FILES['audio']['error'] != 4) {
 
 	// Check if file and errors exists
 	if ($_FILES['audio']['error'] != 4 ) {
-		// $uploadFile = uploadFile($_FILES['audio'], "audios/", 'audio', 'audio_src');
+
 		$file_name = upload($_FILES['audio'], $valid_audio_extensions, "audios/", 'audio');
 
 		if ($file_name) {
