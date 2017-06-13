@@ -22,6 +22,7 @@ $datas = $request->fetchAll();
     <head>
         <meta charset="utf-8" />
         <title>LiveReact</title>
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link href="css/style.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -79,7 +80,7 @@ $datas = $request->fetchAll();
                     <h2>Images</h2>
                     
                     <?php foreach($datas as $data) { 
-                        if ($data['audio_src'] == null && !empty($data['image_src'])) { ?>
+                        if ($data['audio_src'] === NULL && !empty($data['image_src'])) { ?>
                             <button class="btn" data-image="images/<?php echo $data['image_src']; ?>"><img src="images/<?php echo $data['image_src']; ?>"></button>
                     <?php };
                      }; ?>
@@ -91,7 +92,7 @@ $datas = $request->fetchAll();
                     <h2>Sons</h2>
 
                     <?php foreach($datas as $data) {
-                        if (!empty($data['audio_src'])  && ($data['image_src']) == NULL) { ?>
+                        if (!empty($data['audio_src'])  && ($data['image_src']) === NULL) { ?>
                             <button class="btn" data-audio="audios/<?php echo $data['audio_src']; ?>"><?php echo cutString($data['audio_src']); ?></button>
                     <?php };
                      }; ?>

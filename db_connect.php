@@ -11,8 +11,8 @@ try {
     
 
 } catch (PDOException $e) {
-	print("Erreur lors de la création de la base de données : " . $e->getMessage());
-	die();
+    $_SESSION['errors'][] = "Erreur lors de la création de la base de données : " . $e->getMessage();
+    header('Location: index.php');  
 }
 
 //Connect to database
@@ -30,6 +30,6 @@ try {
     
 
 } catch (PDOException $e) {
-	print("Erreur lors de la connexion à la base de données : " . $e->getMessage());
-	die();
+    $_SESSION['errors'][] = "Erreur lors de la connexion à la base de données : " . $e->getMessage();
+    header('Location: index.php');  
 }

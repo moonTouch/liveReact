@@ -50,10 +50,17 @@ function upload($file, $valid_extensions, $path_prefix, $index){
 		$path = $path_prefix . $file_name;
 
 		// Transfert file to folder
-		$transfert= move_uploaded_file($_FILES[$index]['tmp_name'], $path);
+		$transfert = move_uploaded_file($_FILES[$index]['tmp_name'], $path);
 
-		// Return filename to insert in db
-		return $file_name;
+		if($transfert) {
+			// Return filename to insert in db
+			return $file_name;
+
+		} else {
+			$_SESSION['errors'][] = "Erreur lors di transfert de l'image";
+			header('Location: index.php');	
+		}
+		
 
 	}
 }
@@ -91,7 +98,6 @@ if ($_FILES['img']['error'] !=4 && $_FILES['audio']['error'] != 4) {
 	// Check if file and errors exists
 	if ($_FILES['img']['error'] !=4 ) {
 
-		// $uploadFile = uploadFile($_FILES['img'], "images/", 'img', 'image_src');
 		$image_file_name = upload($_FILES['img'], $valid_img_extensions, "images/", 'img');
 
 		if ($image_file_name) {
@@ -130,4 +136,3 @@ if ($_FILES['img']['error'] !=4 && $_FILES['audio']['error'] != 4) {
 // Redirection to index if all is OK
 header('Location: index.php');
 
-?>
