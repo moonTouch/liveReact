@@ -14,11 +14,14 @@ Application to use with a broadcast software (e.g. XSplit / OBS) to interact in 
 * In "js/socket_config.js", at line 1, set your local ip and the port used by your server
 * If your port is not 80, put your port in file "app.js" at line 13 too
 * Run Wamp
-* With prompt command, set your directory and run command "npm install socket io" to install library
+* With prompt command, set your directory and run command to install library
 ```
 npm install socket io
 ```
-* Run app.js using command "node app.js"
+* Run app.js
+```
+node app.js
+```
 * Using WAMP (or another local server), click on "Put Online"
 * Run index.php in your browser, and one more time using your remote controller (connect to local ip)
 * Capture your browser window with broadwast software.
