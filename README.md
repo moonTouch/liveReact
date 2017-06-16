@@ -15,6 +15,9 @@ Application to use with a broadcast software (e.g. XSplit / OBS) to interact in 
 * If your port is not 80, put your port in file "app.js" at line 13 too
 * Run Wamp
 * With prompt command, set your directory and run command "npm install socket io" to install library
+```
+npm install socket io
+```
 * Run app.js using command "node app.js"
 * Using WAMP (or another local server), click on "Put Online"
 * Run index.php in your browser, and one more time using your remote controller (connect to local ip)
